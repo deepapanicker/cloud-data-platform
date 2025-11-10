@@ -1,0 +1,31 @@
+# Development Environment Configuration
+# Copy this file to terraform.tfvars and fill in your values
+
+project_id = "your-gcp-project-id"
+region = "us-central1"
+
+dataset_id = "analytics_dev"
+storage_bucket_name = "company-data-lake-dev"
+
+service_account_email = "your-service-account@your-project.iam.gserviceaccount.com"
+
+bigquery_tables = [
+  {
+    table_id = "customers"
+    schema   = "schemas/customers.json"
+    description = "Customer data table"
+  },
+  {
+    table_id = "orders"
+    schema   = "schemas/orders.json"
+    description = "Orders data table"
+  }
+]
+
+labels = {
+  environment = "dev"
+  project     = "data-platform"
+  managed_by  = "terraform"
+  owner       = "data-engineering-team"
+}
+
